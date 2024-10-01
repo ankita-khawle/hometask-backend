@@ -16,5 +16,5 @@ router
      * @apiSuccess {Object} Status, message, data
      */
     .post(validate(validation.deposit), controller.deposit);
-
+ 
 module.exports = router;

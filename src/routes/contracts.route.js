@@ -29,6 +29,6 @@ router
      * @apiPermission NA
      * @apiSuccess {Object} Status, message, data
      */
-    .get(controller.fetchContractsByID);
+    .get(validate(validation.fetchContractsByID), controller.fetchContractsByID);
 
 module.exports = router;

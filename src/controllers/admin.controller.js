@@ -83,6 +83,7 @@ exports.fetchBestClient = async (req, res, next) => {
             },
             include: [{
                 model: Contract,
+                required: true,
                 as: 'Client',
                 include: [{
                     model: Job,
@@ -98,7 +99,7 @@ exports.fetchBestClient = async (req, res, next) => {
         });
         clientList = JSON.parse(JSON.stringify(clientList));
 
-        if (!clientList) {
+        if (!clientList || !clientList.length) {
             throw new APIError({
                 status: 404,
                 message: `No clients found`,
